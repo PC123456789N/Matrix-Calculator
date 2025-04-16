@@ -1,5 +1,5 @@
 # calculadora automatica de matrix (sem numpy pq sim)
-# caio, nao mexe no meu codego. se quiser fazer em python, faça outro arquivo
+# caiu, nao mexe no meu codego. se quiser fazer em python, faça outro arquivo
 
 #HE
 
@@ -24,16 +24,6 @@ from os import system
 # ordem: 2x2
 #
 
-def soma(A: list, B: list) -> list:
-    matriz_soma = [((),(),()),((),(),()),((),(),())] 
-
-    return matriz_soma
-
-def subtracao(A: list, B: list) -> list:
-    matriz_subtracao = [((),(),()),((),(),()),((),(),())] 
-
-    return matriz_subtracao
-
 def lerMatriz() -> list:
     matriz = []
     linha = int(input("Escreva a quantidade de linhas da matriz: "))
@@ -56,15 +46,31 @@ while True:
 3. Multiplicacao (*)
 0. Sair (s)
 ''').lower()
+    
+    if operacao in ["1", "2", "3", "+", "-", "*", "soma", "subtracao", "multiplicacao"]:
+        matrizA = lerMatriz()
+        matrizB = lerMatriz()
+        matrizC = []
 
-    if operacao in ["soma", "+", "1"]:
-        pass
+        if operacao in ["soma", "+", "1"]:
+            if len(matrizA) == len(matrizB):
+                for i in range(len(matrizA)):
+                    matrizC.append([])
+                    for j in range(len(matrizA[i])):
+                        matrizC[i].append(matrizA[i][j] + matrizB[i][j])
 
-    elif operacao in ["subtração", "subtracao", "sub", "-", "2"]:
-        pass 
+                print(matrizC)
+                quit()
+            else:
+                print("A ordem das matrizes tem que ser igual. Tente novamente")
 
-    elif operacao in ["multiplicação", "multiplicacao", "multi", "3", "*"]:
-        pass
+
+
+        elif operacao in ["subtração", "subtracao", "sub", "-", "2"]:
+            pass 
+
+        elif operacao in ["multiplicação", "multiplicacao", "multi", "3", "*"]:
+            pass
 
     elif operacao in ["s", "0"]:
         print("Saindo...")
