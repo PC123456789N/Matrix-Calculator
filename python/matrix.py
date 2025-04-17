@@ -52,10 +52,17 @@ while True:
             else:
                 print("A ordem das matrizes tem que ser igual. Tente novamente")
 
-
-
         elif operacao in ["subtração", "subtracao", "sub", "-", "2"]:
-            pass 
+            if len(matrizA) == len(matrizB):
+                for i in range(len(matrizA)):
+                    matrizC.append([])
+                    for j in range(len(matrizA[i])):
+                        matrizC[i].append(matrizA[i][j] - matrizB[i][j])
+
+                print(matrizC)
+                quit()
+            else:
+                print("A ordem das matrizes tem que ser igual. Tente novamente")
 
         elif operacao in ["multiplicação", "multiplicacao", "multi", "3", "*"]:
             pass
