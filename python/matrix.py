@@ -1,8 +1,6 @@
 # calculadora automatica de matrix (sem numpy pq sim)
 # caio, nao mexe no meu codego. se quiser fazer em python, faça outro arquivo
 
-#HE
-
 # Primeiro: entrada de operacao (soma, subtracao e multiplicacao)
 # depois add determinante, trasnposto, cofator, adjunto e inverso
 
@@ -13,16 +11,6 @@
 # forma nova matriz de qtd de linha da primeira matriz e qtd coluna da segunda matriz
 
 from os import system
-
-# exemplo 3x3:
-# matriz = [(1.0, 2.0, 3.0), (.06, 7.2, 10.0), (-4.9, 1.0, 0.5)]
-
-# pronto kaio
-# a funcao lerMatriz pede a entrada da ordem da matriz e a partir da ordem cria uma matriz 
-# perguntando o valor de cada espaço para o usuario
-#exemplo:
-# ordem: 2x2
-#
 
 def soma(A: list, B: list) -> list:
     matriz_soma = [((),(),()),((),(),()),((),(),())] 

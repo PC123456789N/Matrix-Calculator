@@ -35,7 +35,7 @@ class matrix:
         ret_matrix = [[0 for i in range(len(self[0]))] for j in range(len(self))]
 
         for i in range(len(self)):
-            for j in range(len(matrix2)):
+            for j in range(len(other)):
                 ret_matrix[i][j] = self[i][j] + other[i][j]
         
         return ret_matrix
@@ -46,7 +46,7 @@ class matrix:
         ret_matrix = [[0 for i in range(len(self[0]))] for j in range(len(self))]
 
         for i in range(len(self)):
-            for j in range(len(matrix2)):
+            for j in range(len(other)):
                 ret_matrix[i][j] = self[i][j] - other[i][j]
         
         return ret_matrix
