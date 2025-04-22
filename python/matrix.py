@@ -65,7 +65,13 @@ while True:
                 print("A ordem das matrizes tem que ser igual. Tente novamente")
 
         elif operacao in ["multiplicação", "multiplicacao", "multi", "3", "*"]:
-            pass
+            # [[1, 3], [6, 7]] * [[0, 3], [8, 9]] = [[(1*0+3*8), (1*3+3*9)], [(6*0+7*8), (6*3+7*9)]] -> [[24, 30], [56, 75]]
+            if len(matrizA[0]) == len(matrizB):
+                # Colocar aqui dentro a multiplicação de matrizes (n sei como ainda)
+                pass
+            else:
+                print("A quantidade de colunas da matrizA tem que ser igual a quantidade de linhas da matrizB. Tente novamente")
+            
 
     elif operacao in ["s", "0"]:
         print("Saindo...")
