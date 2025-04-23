@@ -1,4 +1,4 @@
-matr = list[list[float | int]]
+from __future__ import annotations
 
 # transformar em classe?
 
@@ -22,14 +22,15 @@ def somar(matrix1, matrix2):
 # ou
 
 class matrix:
-    def __init__(self, size: tuple[int, int], value: None|matr = None):
+    def __init__(self: matrix, size: tuple[int, int], value: None|matrix = None):
         self.size = size
 
         if value == None:
-            self.value = [[0 for i in range(size[0])] for j in range(size[1])]
-        self.value = value
+            self.value = [[0 for i in range(size[1])] for j in range(size[0])]
+        else:
+            self.value = value
     
-    def __add__(self, other: matr):
+    def __add__(self: matrix, other: matrix):
         assert(len(self) == len(other))
 
         ret_matrix = [[0 for i in range(len(self[0]))] for j in range(len(self))]
@@ -40,7 +41,7 @@ class matrix:
         
         return ret_matrix
     
-    def __sub__(self, other: matr):
+    def __sub__(self: matrix, other: matrix):
         assert(len(self) == len(other))
 
         ret_matrix = [[0 for i in range(len(self[0]))] for j in range(len(self))]
@@ -51,16 +52,32 @@ class matrix:
         
         return ret_matrix
 
-    def __mult__(self, other: matr):
-        # tenebroso, medo
-        ...
+    def __mul__(self, other: matrix) -> matrix:
+        assert(self.size[0] == other.size[1])
 
-    def __repr__(self):
+        new_matrix: matrix = matrix((self.size[0], other.size[1]))
+
+        for i in range(self.size[0]):
+            for j in range(other.size[1]):
+                for k in range(self.size[1]):
+                    #print(i, j, k, new_matrix.size, self.size, other.size)
+                    #print(other)
+                    new_matrix.value[i][j] += self.value[i][k] * other.value[k][j]
+        
+        return new_matrix
+
+    def __repr__(self: matrix):
         representation = ""
 
-        for i in range(len(self)):
-            for j in range(len(self)):
-                representation += self.value[i][j] + " "
+        for i in range(len(self.value)):
+            for j in range(len(self.value[0])):
+                representation += str(self.value[i][j]) + " "
             representation += "\n"
         
         return representation
+
+
+m1 = matrix((5, 2))
+m2 = matrix((2, 5))
+
+print(m1 * m2)
