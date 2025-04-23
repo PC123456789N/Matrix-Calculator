@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import random
 
 class matrix:
     def __init__(self: matrix, size: tuple[int, int], value: None|matrix = None):
@@ -53,3 +54,21 @@ class matrix:
             representation += "\n"
         
         return representation
+
+def rand_matrix(size, start, stop) -> matrix:
+    mat = matrix(size)
+
+    for i in range(mat.size[0]):
+        for j in range(mat.size[1]):
+            mat.value[i][j] = random.randint(start, stop)
+    
+    return mat
+
+m1 = rand_matrix((2, 5), -5, 5)
+print(m1)
+
+m2 = rand_matrix((5, 2), -5, 5)
+
+print(m2)
+
+print(m2 * m1)
