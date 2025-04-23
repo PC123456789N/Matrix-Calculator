@@ -63,12 +63,3 @@ def rand_matrix(size, start, stop) -> matrix:
             mat.value[i][j] = random.randint(start, stop)
     
     return mat
-
-m1 = rand_matrix((2, 5), -5, 5)
-print(m1)
-
-m2 = rand_matrix((5, 2), -5, 5)
-
-print(m2)
-
-print(m2 * m1)
